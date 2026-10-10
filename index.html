@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="meta.title">NxCode — AI coding agent di terminal Anda</title>
+    <meta
+      name="description"
+      content="NxCode (nxc) adalah AI coding agent untuk terminal: agent Build & Plan, dukungan banyak provider model, server web, MCP, LSP, dan session. Sumber terbuka."
+      data-i18n-attr="content|meta.desc"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <meta property="og:image" content="logo.png" />
+  </head>
+  <body>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <!-- ======================= HEADER ======================= -->
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="#top" aria-label="NxCode">
+          <img class="brand-logo" src="logo.png" alt="NxCode" width="34" height="33" />
+          <span class="brand-name">Nx<span class="brand-accent">Code</span></span>
+        </a>
+        <nav class="nav">
+          <a href="#features" data-i18n="nav.features">Fitur</a>
+          <a href="#providers" data-i18n="nav.providers">Model</a>
+          <a href="#install" data-i18n="nav.install">Instal</a>
+          <a href="#cli" data-i18n="nav.cli">CLI</a>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button type="button" data-lang-btn="id" class="active">ID</button>
+            <button type="button" data-lang-btn="en">EN</button>
+          </div>
+          <a class="nav-gh" href="https://github.com/nxcodeobject/code" target="_blank" rel="noopener">
+            GitHub
+            <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"
+              />
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ======================= HERO ======================= -->
+      <section class="hero wrap">
+        <img class="hero-logo" src="logo.png" alt="Logo NxCode" width="104" height="101" />
+        <div class="badge">
+          <span class="dot"></span>
+          <span data-i18n="hero.badge">Sumber terbuka · v1.18.31 · MIT</span>
+        </div>
+        <h1 class="hero-title" data-i18n="hero.title">
+          AI coding agent<br />
+          <span class="grad">langsung di terminal</span> Anda
+        </h1>
+        <p class="hero-sub" data-i18n="hero.sub">
+          NxCode (<code>nxc</code>) membaca kodemu, mengedit file, menjalankan perintah, dan menyelesaikan tugas —
+          dengan agent <strong>Build</strong> &amp; <strong>Plan</strong>, dukungan banyak provider model, dan kontrol
+          penuh atas kunci API Anda sendiri.
+        </p>
+
+        <!-- Install box -->
+        <div class="install-box">
+          <div class="tabs" role="tablist" aria-label="Pilih sistem operasi">
+            <button class="tab is-active" data-os="windows" role="tab" data-i18n="install.tabWin">Windows</button>
+            <button class="tab" data-os="unix" role="tab" data-i18n="install.tabUnix">Linux / macOS</button>
+          </div>
+
+          <div class="cmd-row" data-os="windows">
+            <span class="prompt" aria-hidden="true">PS&gt;</span>
+            <code id="cmd-windows"
+              ><span class="hl-type">[Net.ServicePointManager]::SecurityProtocol</span> <span class="hl-op">=</span> <span class="hl-type">[Net.SecurityProtocolType]::Tls12</span><span class="hl-op">;</span> <span class="hl-cmd">iwr</span> <span class="hl-flag">-useb</span> <span class="hl-url">https://github.com/nxcodeobject/code/releases/latest/download/install.ps1</span> <span class="hl-op">|</span> <span class="hl-cmd">iex</span></code
+            >
+            <button class="copy" data-copy="cmd-windows" aria-label="Salin perintah" data-i18n="install.copy">Salin</button>
+          </div>
+
+          <div class="cmd-row" data-os="unix" hidden>
+            <span class="prompt" aria-hidden="true">$</span>
+            <code id="cmd-unix"
+              ><span class="hl-cmd">curl</span> <span class="hl-flag">-fsSL</span> <span class="hl-url">https://github.com/nxcodeobject/code/releases/latest/download/install</span> <span class="hl-op">|</span> <span class="hl-cmd">bash</span></code
+            >
+            <button class="copy" data-copy="cmd-unix" aria-label="Salin perintah" data-i18n="install.copy">Salin</button>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#install" data-i18n="hero.cta1">Mulai cepat</a>
+          <a class="btn btn-ghost" href="#features" data-i18n="hero.cta2">Lihat fitur</a>
+        </div>
+        <p class="hero-note" data-i18n="hero.note">Setelah instal: buka terminal baru, jalankan <code>nxc</code>, lalu <code>/connect</code>.</p>
+      </section>
+
+      <!-- ======================= TERMINAL SHOWCASE ======================= -->
+      <section class="wrap terminal-section">
+        <div class="terminal" role="img" aria-label="Pratinjau antarmuka terminal NxCode" data-i18n-attr="aria-label|terminal.aria">
+          <div class="terminal-bar">
+            <span class="tl tl-r"></span><span class="tl tl-y"></span><span class="tl tl-g"></span>
+            <span class="terminal-title">nxc — ~/proyek</span>
+          </div>
+          <pre class="terminal-body"><span class="t-dim">$</span> nxc
+
+<span class="t-orange">███╗   ██╗██╗  ██╗ ██████╗ ██████╗ ██████╗ ███████╗</span>
+<span class="t-orange">████╗  ██║╚██╗██╔╝██╔════╝██╔═══██╗██╔══██╗██╔════╝</span>
+<span class="t-orange">██╔██╗ ██║ ╚███╔╝ ██║     ██║   ██║██║  ██║█████╗  </span>
+<span class="t-orange">██║╚██╗██║ ██╔██╗ ██║     ██║   ██║██║  ██║██╔══╝  </span>
+<span class="t-orange">██║ ╚████║██╔╝ ██╗╚██████╗╚██████╔╝██████╔╝███████╗</span>
+<span class="t-orange">╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝</span>
+
+<span class="t-dim">  Build agent</span> <span class="t-cyan">claude-sonnet-4.6</span>   <span class="t-dim">·</span>   <span class="t-green">Plan agent</span>
+
+<span class="t-pink">▌</span> <span data-i18n="term.task">Perbaiki rute auth yang gagal saat token kedaluwarsa</span>
+
+<span class="t-blue">●</span> <span data-i18n="term.read">Membaca   </span> <span class="t-dim">src/auth/session.ts</span>
+<span class="t-blue">●</span> <span data-i18n="term.edit">Mengedit  </span> <span class="t-dim">src/auth/session.ts</span>   <span class="t-green">+18 −4</span>
+<span class="t-blue">●</span> <span data-i18n="term.run">Menjalankan</span> <span class="t-dim">bun test src/auth</span>
+<span class="t-green">✓</span> <span data-i18n="term.pass">42 tes lulus</span> <span class="t-dim">(3.1s)</span>
+
+<span class="t-dim" data-i18n="term.done">› Tugas selesai. Ketik /help untuk perintah lainnya.</span></pre>
+        </div>
+      </section>
+
+      <!-- ======================= FEATURES ======================= -->
+      <section id="features" class="wrap section">
+        <h2 class="section-title" data-i18n="features.title">Kenapa NxCode</h2>
+        <p class="section-lead" data-i18n="features.lead">Satu binary, tanpa runtime berat. Bekerja di Windows, Linux, dan macOS.</p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon" style="color: var(--mono-green)">◑</div>
+            <h3 data-i18n="feat1.title">Agent Build &amp; Plan</h3>
+            <p data-i18n="feat1.desc">
+              Dua mode bawaan: <strong>Build</strong> untuk mengeksekusi perubahan, dan <strong>Plan</strong> untuk
+              menyusun rencana sebelum menyentuh kode. Beralih kapan pun.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" style="color: var(--brand)">◇</div>
+            <h3 data-i18n="feat2.title">Model apa pun, kunci Anda</h3>
+            <p data-i18n="feat2.desc">
+              Pakai kunci API provider favoritmu — Anthropic, OpenAI, Google, hingga model lokal. Tidak ada perantara,
+              tidak ada markup.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" style="color: var(--mono-cyan)">▤</div>
+            <h3 data-i18n="feat3.title">Server &amp; Web UI</h3>
+            <p data-i18n="feat3.desc">
+              <code>nxc web</code> / <code>nxc serve</code> menjalankan server lokal dan membuka antarmuka web —
+              akses sesi dari browser atau perangkat lain di jaringan.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" style="color: var(--mono-purple)">⚙</div>
+            <h3 data-i18n="feat4.title">Ekstensi MCP</h3>
+            <p data-i18n="feat4.desc">
+              Hubungkan MCP server untuk memberi agent alat tambahan: database, browser, API internal, dan lainnya lewat
+              <code>nxc.json</code>.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" style="color: var(--mono-pink)">⌘</div>
+            <h3 data-i18n="feat5.title">Paham kode (LSP)</h3>
+            <p data-i18n="feat5.desc">
+              Terhubung ke language server sehingga agent melihat kesalahan tipe, simbol, dan definisi yang akurat
+              sebelum mengusulkan perubahan.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" style="color: var(--mono-green)">⟲</div>
+            <h3 data-i18n="feat6.title">Session &amp; snapshot</h3>
+            <p data-i18n="feat6.desc">
+              Setiap percakapan tersimpan. Ekspor/impor, lanjutkan sesi lama, dan kembalikan perubahan berkat snapshot
+              otomatis.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ======================= PROVIDERS ======================= -->
+      <section id="providers" class="wrap section">
+        <h2 class="section-title" data-i18n="providers.title">Didukung banyak provider</h2>
+        <p class="section-lead" data-i18n="providers.lead">
+          Pilih penyedia yang kamu punya. Hubungkan lewat <code>/connect</code> atau variabel lingkungan.
+        </p>
+        <ul class="pill-list">
+          <li class="pill">Anthropic</li>
+          <li class="pill">OpenAI</li>
+          <li class="pill">Google</li>
+          <li class="pill">Azure</li>
+          <li class="pill">Amazon Bedrock</li>
+          <li class="pill">Groq</li>
+          <li class="pill">Mistral</li>
+          <li class="pill">xAI</li>
+          <li class="pill">Cohere</li>
+          <li class="pill">Cerebras</li>
+          <li class="pill">Perplexity</li>
+          <li class="pill">Together AI</li>
+          <li class="pill">OpenRouter</li>
+          <li class="pill">Vercel AI Gateway</li>
+          <li class="pill">DeepInfra</li>
+          <li class="pill">OpenAI-compatible</li>
+        </ul>
+      </section>
+
+      <!-- ======================= INSTALL ======================= -->
+      <section id="install" class="wrap section">
+        <h2 class="section-title" data-i18n="inst.title">Instal dalam 3 langkah</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3 data-i18n="inst1.title">Pasang NxCode</h3>
+            <p data-i18n="inst1.desc">Jalankan perintah instalasi di hero di atas sesuai sistem operasimu.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3 data-i18n="inst2.title">Buka proyek</h3>
+            <div class="code-inline">
+              <code id="cmd-cd"><span class="hl-cmd">cd</span> folder-proyek</code>
+              <button class="copy copy-sm" data-copy="cmd-cd" aria-label="Salin" data-i18n="install.copy">Salin</button>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3 data-i18n="inst3.title">Hubungkan &amp; mulai</h3>
+            <div class="code-inline">
+              <code id="cmd-run"><span class="hl-cmd">nxc</span></code>
+              <button class="copy copy-sm" data-copy="cmd-run" aria-label="Salin" data-i18n="install.copy">Salin</button>
+            </div>
+            <p class="step-hint" data-i18n="inst3.hint">Lalu ketik <code>/connect</code> untuk mengisi API key provider.</p>
+          </div>
+        </div>
+        <p class="install-foot" data-i18n="inst.foot">
+          Butuh instalasi manual? Unduh <code>nxc-windows-x64.zip</code> atau <code>nxc-linux-x64.tar.gz</code> dari
+          <a href="https://github.com/nxcodeobject/code/releases" target="_blank" rel="noopener">halaman rilis</a>.
+        </p>
+      </section>
+
+      <!-- ======================= CLI ======================= -->
+      <section id="cli" class="wrap section">
+        <h2 class="section-title" data-i18n="cli.title">Perintah penting</h2>
+        <div class="cli-grid">
+          <div class="cli-item"><code>nxc</code><span data-i18n="cli.nxc">Mulai agent di folder proyek</span></div>
+          <div class="cli-item"><code>nxc run "…"</code><span data-i18n="cli.run">Jalankan prompt sekali lalu keluar</span></div>
+          <div class="cli-item"><code>nxc web</code><span data-i18n="cli.web">Server + antarmuka web lokal</span></div>
+          <div class="cli-item"><code>nxc serve</code><span data-i18n="cli.serve">Jalankan server headless</span></div>
+          <div class="cli-item"><code>nxc providers login</code><span data-i18n="cli.login">Tambah kredensial provider</span></div>
+          <div class="cli-item"><code>nxc models</code><span data-i18n="cli.models">Daftar model yang tersedia</span></div>
+          <div class="cli-item"><code>nxc agent</code><span data-i18n="cli.agent">Kelola agent kustom</span></div>
+          <div class="cli-item"><code>nxc mcp</code><span data-i18n="cli.mcp">Kelola MCP server</span></div>
+          <div class="cli-item"><code>nxc session</code><span data-i18n="cli.session">Kelola percakapan tersimpan</span></div>
+          <div class="cli-item"><code>nxc export / import</code><span data-i18n="cli.export">Pindahkan sesi antar mesin</span></div>
+          <div class="cli-item"><code>nxc upgrade</code><span data-i18n="cli.upgrade">Perbarui ke versi terbaru</span></div>
+          <div class="cli-item"><code>nxc --help</code><span data-i18n="cli.help">Lihat semua perintah</span></div>
+        </div>
+      </section>
+
+      <!-- ======================= CTA ======================= -->
+      <section class="wrap cta">
+        <h2 data-i18n="cta.title">Siap mencoba?</h2>
+        <p data-i18n="cta.desc">Instal NxCode, hubungkan model pilihanmu, dan biarkan agent yang menulis sebagian kode.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://github.com/nxcodeobject/code/releases" target="_blank" rel="noopener" data-i18n="cta.btn1"
+            >Unduh rilis</a
+          >
+          <a class="btn btn-ghost" href="https://github.com/nxcodeobject/code" target="_blank" rel="noopener" data-i18n="cta.btn2"
+            >Lihat sumber di GitHub</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div class="footer-brand">
+          <img class="brand-logo" src="logo.png" alt="NxCode" width="30" height="29" />
+          <span class="brand-name">Nx<span class="brand-accent">Code</span></span>
+        </div>
+        <p class="footer-note" data-i18n="footer.note">AI-powered development tool · Dirilis di bawah lisensi MIT.</p>
+        <div class="footer-links">
+          <a href="https://github.com/nxcodeobject/code" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/nxcodeobject/code/releases" target="_blank" rel="noopener">Rilis</a>
+          <a href="https://github.com/nxcodeobject/code/issues" target="_blank" rel="noopener" data-i18n="footer.issues">Masalah</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // --- i18n logic ---
+      const I18N = {
+        id: {
+          "meta.title": "NxCode — AI coding agent di terminal Anda",
+          "meta.desc": "NxCode (nxc) adalah AI coding agent untuk terminal: agent Build & Plan, dukungan banyak provider model, server web, MCP, LSP, dan session. Sumber terbuka.",
+          "nav.features": "Fitur",
+          "nav.providers": "Model",
+          "nav.install": "Instal",
+          "nav.cli": "CLI",
+          "hero.badge": "Sumber terbuka · v1.18.31 · MIT",
+          "hero.title": "AI coding agent<br />\n<span class=\"grad\">langsung di terminal</span> Anda",
+          "hero.sub": "NxCode (<code>nxc</code>) membaca kodemu, mengedit file, menjalankan perintah, dan menyelesaikan tugas — dengan agent <strong>Build</strong> &amp; <strong>Plan</strong>, dukungan banyak provider model, dan kontrol penuh atas kunci API Anda sendiri.",
+          "install.tabWin": "Windows",
+          "install.tabUnix": "Linux / macOS",
+          "install.copy": "Salin",
+          "install.copied": "Tersalin!",
+          "hero.cta1": "Mulai cepat",
+          "hero.cta2": "Lihat fitur",
+          "hero.note": "Setelah instal: buka terminal baru, jalankan <code>nxc</code>, lalu <code>/connect</code>.",
+          "terminal.aria": "Pratinjau antarmuka terminal NxCode",
+          "term.task": "Perbaiki rute auth yang gagal saat token kedaluwarsa",
+          "term.read": "Membaca   ",
+          "term.edit": "Mengedit  ",
+          "term.run": "Menjalankan",
+          "term.pass": "42 tes lulus",
+          "term.done": "› Tugas selesai. Ketik /help untuk perintah lainnya.",
+          "features.title": "Kenapa NxCode",
+          "features.lead": "Satu binary, tanpa runtime berat. Bekerja di Windows, Linux, dan macOS.",
+          "feat1.title": "Agent Build &amp; Plan",
+          "feat1.desc": "Dua mode bawaan: <strong>Build</strong> untuk mengeksekusi perubahan, dan <strong>Plan</strong> untuk menyusun rencana sebelum menyentuh kode. Beralih kapan pun.",
+          "feat2.title": "Model apa pun, kunci Anda",
+          "feat2.desc": "Pakai kunci API provider favoritmu — Anthropic, OpenAI, Google, hingga model lokal. Tidak ada perantara, tidak ada markup.",
+          "feat3.title": "Server &amp; Web UI",
+          "feat3.desc": "<code>nxc web</code> / <code>nxc serve</code> menjalankan server lokal dan membuka antarmuka web — akses sesi dari browser atau perangkat lain di jaringan.",
+          "feat4.title": "Ekstensi MCP",
+          "feat4.desc": "Hubungkan MCP server untuk memberi agent alat tambahan: database, browser, API internal, dan lainnya lewat <code>nxc.json</code>.",
+          "feat5.title": "Paham kode (LSP)",
+          "feat5.desc": "Terhubung ke language server sehingga agent melihat kesalahan tipe, simbol, dan definisi yang akurat sebelum mengusulkan perubahan.",
+          "feat6.title": "Session &amp; snapshot",
+          "feat6.desc": "Setiap percakapan tersimpan. Ekspor/impor, lanjutkan sesi lama, dan kembalikan perubahan berkat snapshot otomatis.",
+          "providers.title": "Didukung banyak provider",
+          "providers.lead": "Pilih penyedia yang kamu punya. Hubungkan lewat <code>/connect</code> atau variabel lingkungan.",
+          "inst.title": "Instal dalam 3 langkah",
+          "inst1.title": "Pasang NxCode",
+          "inst1.desc": "Jalankan perintah instalasi di hero di atas sesuai sistem operasimu.",
+          "inst2.title": "Buka proyek",
+          "inst3.title": "Hubungkan &amp; mulai",
+          "inst3.hint": "Lalu ketik <code>/connect</code> untuk mengisi API key provider.",
+          "inst.foot": "Butuh instalasi manual? Unduh <code>nxc-windows-x64.zip</code> atau <code>nxc-linux-x64.tar.gz</code> dari <a href=\"https://github.com/nxcodeobject/code/releases\" target=\"_blank\" rel=\"noopener\">halaman rilis</a>.",
+          "cli.title": "Perintah penting",
+          "cli.nxc": "Mulai agent di folder proyek",
+          "cli.run": "Jalankan prompt sekali lalu keluar",
+          "cli.web": "Server + antarmuka web lokal",
+          "cli.serve": "Jalankan server headless",
+          "cli.login": "Tambah kredensial provider",
+          "cli.models": "Daftar model yang tersedia",
+          "cli.agent": "Kelola agent kustom",
+          "cli.mcp": "Kelola MCP server",
+          "cli.session": "Kelola percakapan tersimpan",
+          "cli.export": "Pindahkan sesi antar mesin",
+          "cli.upgrade": "Perbarui ke versi terbaru",
+          "cli.help": "Lihat semua perintah",
+          "cta.title": "Siap mencoba?",
+          "cta.desc": "Instal NxCode, hubungkan model pilihanmu, dan biarkan agent yang menulis sebagian kode.",
+          "cta.btn1": "Unduh rilis",
+          "cta.btn2": "Lihat sumber di GitHub",
+          "footer.note": "AI-powered development tool · Dirilis di bawah lisensi MIT.",
+          "footer.issues": "Masalah"
+        },
+        en: {
+          "meta.title": "NxCode — AI coding agent in your terminal",
+          "meta.desc": "NxCode (nxc) is an AI coding agent for your terminal: Build & Plan agents, multi-provider support, web server, MCP, LSP, and sessions. Open source.",
+          "nav.features": "Features",
+          "nav.providers": "Models",
+          "nav.install": "Install",
+          "nav.cli": "CLI",
+          "hero.badge": "Open source · v1.18.31 · MIT",
+          "hero.title": "AI coding agent<br />\n<span class=\"grad\">right in your terminal</span>",
+          "hero.sub": "NxCode (<code>nxc</code>) reads your code, edits files, runs commands, and completes tasks — featuring <strong>Build</strong> &amp; <strong>Plan</strong> agents, multi-provider support, and full control over your own API keys.",
+          "install.tabWin": "Windows",
+          "install.tabUnix": "Linux / macOS",
+          "install.copy": "Copy",
+          "install.copied": "Copied!",
+          "hero.cta1": "Quick start",
+          "hero.cta2": "View features",
+          "hero.note": "After installing: open a new terminal, run <code>nxc</code>, then <code>/connect</code>.",
+          "terminal.aria": "NxCode terminal interface preview",
+          "term.task": "Fix the auth route failing when token expires",
+          "term.read": "Reading   ",
+          "term.edit": "Editing   ",
+          "term.run": "Running   ",
+          "term.pass": "42 tests passed",
+          "term.done": "› Task complete. Type /help for more commands.",
+          "features.title": "Why NxCode",
+          "features.lead": "Single binary, no heavy runtimes. Works on Windows, Linux, and macOS.",
+          "feat1.title": "Build &amp; Plan Agents",
+          "feat1.desc": "Two built-in modes: <strong>Build</strong> to execute changes, and <strong>Plan</strong> to draft an approach before touching the code. Switch anytime.",
+          "feat2.title": "Any model, your keys",
+          "feat2.desc": "Bring your favorite provider API keys — Anthropic, OpenAI, Google, even local models. No middlemen, no markups.",
+          "feat3.title": "Server &amp; Web UI",
+          "feat3.desc": "<code>nxc web</code> / <code>nxc serve</code> runs a local server and opens a web interface — access your sessions from a browser or other devices on your network.",
+          "feat4.title": "MCP Extensions",
+          "feat4.desc": "Connect MCP servers to give agents extra tools: databases, browsers, internal APIs, and more via <code>nxc.json</code>.",
+          "feat5.title": "Code-aware (LSP)",
+          "feat5.desc": "Connects to language servers so the agent sees accurate type errors, symbols, and definitions before proposing changes.",
+          "feat6.title": "Sessions &amp; snapshots",
+          "feat6.desc": "Every conversation is saved. Export/import, resume old sessions, and revert changes thanks to automatic snapshots.",
+          "providers.title": "Wide Provider Support",
+          "providers.lead": "Choose the provider you have. Connect via <code>/connect</code> or environment variables.",
+          "inst.title": "Install in 3 steps",
+          "inst1.title": "Install NxCode",
+          "inst1.desc": "Run the installation command in the hero section above according to your operating system.",
+          "inst2.title": "Open your project",
+          "inst3.title": "Connect &amp; start",
+          "inst3.hint": "Then type <code>/connect</code> to provide your API key.",
+          "inst.foot": "Need manual installation? Download <code>nxc-windows-x64.zip</code> or <code>nxc-linux-x64.tar.gz</code> from the <a href=\"https://github.com/nxcodeobject/code/releases\" target=\"_blank\" rel=\"noopener\">releases page</a>.",
+          "cli.title": "Essential Commands",
+          "cli.nxc": "Start agent in project directory",
+          "cli.run": "Run prompt once then exit",
+          "cli.web": "Local server + web interface",
+          "cli.serve": "Run headless server",
+          "cli.login": "Add provider credentials",
+          "cli.models": "List available models",
+          "cli.agent": "Manage custom agents",
+          "cli.mcp": "Manage MCP servers",
+          "cli.session": "Manage saved conversations",
+          "cli.export": "Transfer sessions between machines",
+          "cli.upgrade": "Update to the latest version",
+          "cli.help": "View all commands",
+          "cta.title": "Ready to try?",
+          "cta.desc": "Install NxCode, connect your preferred model, and let the agent write some code.",
+          "cta.btn1": "Download release",
+          "cta.btn2": "View source on GitHub",
+          "footer.note": "AI-powered development tool · Released under the MIT license.",
+          "footer.issues": "Issues"
+        }
+      };
+
+      function setLang(lang) {
+        if (!I18N[lang]) lang = "id";
+        document.documentElement.lang = lang;
+        localStorage.setItem("nxc-lang", lang);
+
+        document.querySelectorAll("[data-lang-btn]").forEach(btn => {
+          btn.classList.toggle("active", btn.dataset.langBtn === lang);
+        });
+
+        const dict = I18N[lang];
+
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          if (dict[key]) el.innerHTML = dict[key];
+        });
+
+        document.querySelectorAll("[data-i18n-attr]").forEach(el => {
+          const rules = el.getAttribute("data-i18n-attr").split(",");
+          rules.forEach(rule => {
+            const parts = rule.split("|");
+            if (parts.length === 2 && dict[parts[1]]) {
+              el.setAttribute(parts[0], dict[parts[1]]);
+            }
+          });
+        });
+        
+        if (dict["meta.title"]) document.title = dict["meta.title"];
+      }
+
+      document.querySelectorAll("[data-lang-btn]").forEach(btn => {
+        btn.addEventListener("click", () => setLang(btn.dataset.langBtn));
+      });
+
+      const savedLang = localStorage.getItem("nxc-lang");
+      if (savedLang) {
+        setLang(savedLang);
+      } else {
+        const browserLang = navigator.language.slice(0, 2).toLowerCase();
+        setLang(browserLang === "id" ? "id" : "en");
+      }
+
+      // --- OS tabs ---
+      const tabs = document.querySelectorAll(".tab")
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const os = tab.dataset.os
+          document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("is-active", t === tab))
+          document.querySelectorAll(".cmd-row").forEach((row) => {
+            row.hidden = row.dataset.os !== os
+          })
+        })
+      })
+
+      // --- copy buttons ---
+      document.querySelectorAll(".copy").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const el = document.getElementById(btn.dataset.copy)
+          if (!el) return
+          const value = el.textContent.trim()
+          try {
+            await navigator.clipboard.writeText(value)
+          } catch {
+            const ta = document.createElement("textarea")
+            ta.value = value
+            document.body.appendChild(ta)
+            ta.select()
+            document.execCommand("copy")
+            ta.remove()
+          }
+          const original = btn.innerHTML
+          const dict = I18N[document.documentElement.lang || "id"];
+          btn.innerHTML = dict["install.copied"];
+          btn.classList.add("is-copied")
+          setTimeout(() => {
+            btn.innerHTML = original
+            btn.classList.remove("is-copied")
+          }, 1400)
+        })
+      })
+
+      // --- smooth scroll offset ---
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const id = a.getAttribute("href")
+          if (id.length < 2) return
+          const target = document.querySelector(id)
+          if (target) {
+            e.preventDefault()
+            target.scrollIntoView({ behavior: "smooth", block: "start" })
+          }
+        })
+      })
+    </script>
+  </body>
+</html>

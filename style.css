@@ -164,7 +164,7 @@ code {
   text-decoration: none;
 }
 
-.nav-gh {
+.nav-gh, .nav-sponsor {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -180,6 +180,12 @@ code {
   background: var(--text);
   color: var(--surface) !important;
   border-color: var(--text);
+}
+
+.nav-sponsor:hover {
+  background: #fdf5f8;
+  color: #db61a2 !important;
+  border-color: #db61a2;
 }
 
 /* ---------- lang switcher ---------- */

@@ -847,3 +847,7 @@ code {
     transition: none !important;
   }
 }
+/* CTA IDE note */
+.cta-ide-note { margin-top: 18px; font-size: 0.9rem; color: var(--muted, #8b98ad); }
+.cta-ide-note a { color: var(--accent, #e95420); font-weight: 600; }
+.cta-ide-note strong { color: var(--text, #e6ecf5); }
